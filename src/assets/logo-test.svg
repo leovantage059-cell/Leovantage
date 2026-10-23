@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Background transparent or dark navy based on usage -->
+  <g id="brand-symbol">
+    <!-- Top-Left Browser Window / L-Frame -->
+    <path 
+      d="M38 152 V72 C38 48 48 38 72 38 H146 C154 38 160 44 160 52 C160 60 154 66 146 66 H74 C68 66 66 68 66 74 V152 C66 156 62 160 52 160 C42 160 38 156 38 152 Z" 
+      fill="#F5F7F2"
+    />
+    <!-- Dot 1 on horizontal bar (Navy) -->
+    <circle cx="123" cy="52" r="6" fill="#121A2E" />
+    <!-- Dot 2 on horizontal bar (Electric Lime) -->
+    <circle cx="142" cy="52" r="6" fill="#C7F36B" />
+
+    <!-- Center Pointer Arrow (White) -->
+    <path 
+      d="M80 110 L118 136 L99 152 L80 166 Z" 
+      fill="#F5F7F2"
+    />
+
+    <!-- Lower-Right Growth Polygon / Shield (Electric Lime) -->
+    <path 
+      d="M88 88 C84 88 84 92 84 96 V108 L114 88 H152 C156 88 160 92 160 96 V160 L134 174 C132 175 130 173 130 170 V136 L92 110 V96 C92 92 88 88 88 88 Z" 
+      fill="#C7F36B"
+    />
+  </g>
+</svg>
