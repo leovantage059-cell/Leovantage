@@ -1,9 +1,22 @@
-import React from 'react';
-import { PROJECTS } from '../data/projects';
+import React, { useState, useEffect } from 'react';
+import { PROJECTS as defaultProjects } from '../data/projects';
+import { getPublishedProjects } from '../services/publicContentService';
 import { useScrollReveal } from '../utils/motion';
 
 export default function FeaturedProjects({ navigate }) {
-  const featured = PROJECTS.filter((p) => p.featured);
+  const [allProjects, setAllProjects] = useState(defaultProjects);
+
+  useEffect(() => {
+    let isMounted = true;
+    getPublishedProjects().then((projs) => {
+      if (isMounted && projs && projs.length > 0) {
+        setAllProjects(projs);
+      }
+    });
+    return () => { isMounted = false; };
+  }, []);
+
+  const featured = allProjects.filter((p) => p.featured);
   const { ref: sectionRef, isRevealed } = useScrollReveal();
 
   return (
@@ -11,8 +24,8 @@ export default function FeaturedProjects({ navigate }) {
       <div className="container">
         <div className="section-header-row">
           <div>
-            <div className="sub-title">FLAGSHIP PROJECTS</div>
-            <h2 className="headline-section">RECENT SUCCESSES.</h2>
+            <div className="sub-title">SELECTED WORK</div>
+            <h2 className="headline-section">RECENT PROJECTS.</h2>
           </div>
           <a
             href="#/work"
@@ -22,7 +35,7 @@ export default function FeaturedProjects({ navigate }) {
               navigate('work');
             }}
           >
-            <span>ALL PROJECTS ({PROJECTS.length})</span>
+            <span>VIEW ALL PROJECTS ({allProjects.length})</span>
             <span className="btn-arrow">↗</span>
           </a>
         </div>
@@ -114,7 +127,7 @@ export default function FeaturedProjects({ navigate }) {
                             letterSpacing: '0.06em'
                           }}
                         >
-                          Client Partner
+                          Client
                         </div>
                         <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#FFFFFF' }}>
                           {project.client}
@@ -129,7 +142,7 @@ export default function FeaturedProjects({ navigate }) {
                             letterSpacing: '0.06em'
                           }}
                         >
-                          Turnaround
+                          Timeline
                         </div>
                         <div style={{ fontSize: '0.92rem', fontWeight: 800, color: 'var(--brand-lime)' }}>
                           {project.timeline}
@@ -165,10 +178,10 @@ export default function FeaturedProjects({ navigate }) {
                       }}
                     >
                       <span style={{ fontSize: '0.72rem', color: 'rgba(245, 247, 242, 0.7)' }}>
-                        Architecture: {project.tech.slice(0, 3).join(' • ')}
+                        Tech Stack: {project.tech.slice(0, 3).join(' • ')}
                       </span>
                       <span style={{ fontSize: '0.7rem', color: 'var(--brand-lime)', fontWeight: 700 }}>
-                        99.98% SLA
+                        Production Ready
                       </span>
                     </div>
                   </div>

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { usePrefersReducedMotion } from '../utils/motion';
+import { getSiteHero } from '../services/publicContentService';
 
 export default function Hero({ navigate }) {
   const heroRef = useRef(null);
@@ -8,10 +9,16 @@ export default function Hero({ navigate }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const isPlayingRef = useRef(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [customHero, setCustomHero] = useState(null);
   const prefersReduced = usePrefersReducedMotion();
 
   useEffect(() => {
     setIsLoaded(true);
+    let isMounted = true;
+    getSiteHero().then((h) => {
+      if (isMounted && h) setCustomHero(h);
+    });
+    return () => { isMounted = false; };
   }, []);
 
   useEffect(() => {
@@ -121,7 +128,7 @@ export default function Hero({ navigate }) {
     hero.addEventListener('mouseleave', handleMouseLeave, { passive: true });
 
     const updateScrollTilt = () => {
-      if (isPlayingRef.current || !isHeroVisible) {
+      if (isPlayingRef.current || !isHeroVisible || window.innerWidth < 768) {
         scrollTicking = false;
         return;
       }
@@ -137,6 +144,12 @@ export default function Hero({ navigate }) {
       scrollTicking = false;
     };
 
+    const handleResize = () => {
+      if (window.innerWidth < 768 && mockupRef.current) {
+        mockupRef.current.style.transform = '';
+      }
+    };
+
     const handleScroll = () => {
       if (!isHeroVisible || isPlayingRef.current) return;
       if (!scrollTicking) {
@@ -145,6 +158,7 @@ export default function Hero({ navigate }) {
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
       if (animId) cancelAnimationFrame(animId);
@@ -152,6 +166,7 @@ export default function Hero({ navigate }) {
       hero.removeEventListener('mousemove', handleMouseMove);
       hero.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, [prefersReduced]);
 
@@ -192,41 +207,65 @@ export default function Hero({ navigate }) {
         {/* Availability Pill */}
         <div className="status-pill">
           <span className="pulse-dot" />
-          <span>Available For Impactful Work</span>
+          <span>
+            {customHero?.badge && !customHero.badge.includes('Impactful Work')
+              ? customHero.badge
+              : 'Available for New Projects'}
+          </span>
         </div>
 
         {/* Giant Headline */}
         <h1 className="headline-mega">
-          DESIGN. DEVELOP.<br />DELIVER.
+          {customHero?.headlinePart1 && !customHero.headlinePart1.includes('DESIGN. DEVELOP.') ? (
+            <>
+              {customHero.headlinePart1}<br />
+              <span style={{ color: 'var(--brand-lime)' }}>
+                {customHero.headlinePart2 && !customHero.headlinePart2.includes('DELIVER.') ? customHero.headlinePart2 : 'LAUNCH.'}
+              </span>
+            </>
+          ) : (
+            <>
+              PLAN. BUILD.<br />
+              <span style={{ color: 'var(--brand-lime)' }}>LAUNCH.</span>
+            </>
+          )}
         </h1>
 
         {/* Sub-copy */}
         <p className="hero-subcopy">
-          Future-proof web solutions custom-built to elevate your brand, drive growth, and adapt seamlessly to your evolving business goals.
+          {customHero?.subcopy && !customHero.subcopy.includes('Future-proof web solutions')
+            ? customHero.subcopy
+            : 'We design and build websites and apps that are easy to use and built around your business goals.'}
         </p>
 
         {/* Action Buttons */}
         <div className="hero-cta-group">
           <a
-            href="#/services"
+            href={`#/${customHero?.primaryCtaLink || 'services'}`}
             className="btn-pill-dark"
             onClick={(e) => {
               e.preventDefault();
-              navigate('services');
+              navigate(customHero?.primaryCtaLink || 'services');
             }}
           >
-            <span>SEE MORE</span>
+            <span>
+              {customHero?.primaryCtaText && !customHero.primaryCtaText.includes('SEE MORE')
+                ? customHero.primaryCtaText
+                : 'EXPLORE SERVICES'}
+            </span>
             <span className="btn-arrow">↗</span>
           </a>
           <a
-            href="#/work"
+            href={`#/${customHero?.secondaryCtaLink || 'work'}`}
             className="btn-pill-outline"
             onClick={(e) => {
               e.preventDefault();
-              navigate('work');
+              navigate(customHero?.secondaryCtaLink || 'work');
             }}
           >
-            SEE PORTFOLIO
+            {customHero?.secondaryCtaText && !customHero.secondaryCtaText.includes('SEE PORTFOLIO')
+              ? customHero.secondaryCtaText
+              : 'VIEW OUR WORK'}
           </a>
         </div>
       </div>
@@ -342,7 +381,7 @@ export default function Hero({ navigate }) {
             navigate('work');
           }}
         >
-          <span>SEE PORTFOLIO</span>
+          <span>VIEW OUR WORK</span>
           <span>→</span>
         </a>
 

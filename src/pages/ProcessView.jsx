@@ -10,45 +10,45 @@ export default function ProcessView({ navigate }) {
   const fullSteps = [
     {
       num: '01.',
-      title: 'Discovery & Technical Architecture',
-      desc: 'We conduct deep interviews to align on business metrics, map user journeys, define database schemas, and identify technical constraints.',
+      title: 'Discovery & Planning',
+      desc: 'We discuss your goals, outline the features needed, identify your audience, and plan the technical structure of your website or app.',
       timeline: 'Week 1',
-      deliverables: 'System requirements document, database ERD, timeline gantt chart.'
+      deliverables: 'Project scope document, site map or architecture plan, and project timeline.'
     },
     {
       num: '02.',
-      title: 'UI/UX Prototyping & Design Systems',
-      desc: 'We translate user stories into low-fidelity wireframes and click-through Figma prototypes. Once the layout is validated, we craft the full visual language and token hierarchy.',
+      title: 'Design & Prototyping',
+      desc: 'We build clear wireframes and interactive Figma prototypes so you can click through the screens and confirm the layout before we start writing code.',
       timeline: 'Weeks 2–3',
-      deliverables: 'Interactive Figma prototype, WCAG AA accessibility audit, design tokens.'
+      deliverables: 'Clickable Figma prototype, mobile and desktop layouts, and design components.'
     },
     {
       num: '03.',
-      title: 'Sprint-Driven Frontend & Backend Engineering',
-      desc: 'We build with clean, type-safe architecture. You receive access to a staging environment with weekly sprint demos to watch your product take shape in real time.',
+      title: 'Frontend & Backend Development',
+      desc: 'We write clean, reliable code for both user interfaces and backend systems. You receive access to a private preview link to test the progress firsthand.',
       timeline: 'Weeks 4–7',
-      deliverables: 'Staging deployment previews, clean GitHub PRs, secure REST/GraphQL endpoints.'
+      deliverables: 'Private preview links, organized code repository, and secure backend integrations.'
     },
     {
       num: '04.',
-      title: 'Automated Testing & Security Hardening',
-      desc: 'We conduct rigorous unit tests, cross-browser validation across Safari, Chrome, iOS & Android devices, and run penetration audits to ensure zero vulnerabilities.',
+      title: 'Testing & Quality Assurance',
+      desc: 'We test your website or app across popular browsers and mobile devices, verify form submissions, optimize loading speeds, and fix any functional bugs.',
       timeline: 'Week 8',
-      deliverables: 'QA pass reports, 100/100 Lighthouse performance certifications.'
+      deliverables: 'Cross-browser and mobile test checklist, speed audit, and bug resolution.'
     },
     {
       num: '05.',
-      title: 'Production Deployment & Go-Live',
-      desc: 'Zero-downtime DNS propagation, automated SSL certificates, CDN edge-caching configurations, and mobile app store releases.',
+      title: 'Launch & Handover',
+      desc: 'We connect your custom domain, set up secure hosting and SSL certificates, publish mobile apps where applicable, and hand over all account access to you.',
       timeline: 'Launch Day',
-      deliverables: 'Live URL, App Store & Google Play links, handover documentation.'
+      deliverables: 'Live website or app, full source code and design files, and administrative credentials.'
     },
     {
       num: '06.',
-      title: 'Continuous Growth & 30-Day SLA',
-      desc: 'We stand firmly behind our work. Every release includes 30 days of complimentary engineering warranty, monitoring, and team training sessions.',
+      title: 'Post-Launch Support',
+      desc: 'Every project includes 30 days of post-launch support for bug fixes, performance monitoring, and team walkthroughs. Ongoing maintenance plans are also available.',
       timeline: 'Ongoing',
-      deliverables: 'Health monitoring dashboards, analytics reports, staff training sessions.'
+      deliverables: '30 days bug-fixing support, system walkthrough, and optional maintenance plans.'
     }
   ];
 
@@ -104,20 +104,19 @@ export default function ProcessView({ navigate }) {
     <div className="page-view">
       <div className="page-hero-light">
         <div className="container">
-          <div className="sub-title">DELIVERY ROADMAP</div>
-          <h1 className="headline-mega dark">HOW WE SHIP.</h1>
+          <div className="sub-title">OUR WORKFLOW</div>
+          <h1 className="headline-mega dark">OUR PROCESS.</h1>
           <p className="hero-subcopy">
-            A transparent, agile workflow designed to eliminate scope creep and deliver award-winning products on time.
+            A transparent, step-by-step workflow designed to deliver your project on time and within scope.
           </p>
         </div>
       </div>
 
       <div
-        className={`container ${isRevealed ? 'is-revealed' : ''}`}
+        className={`container page-content-container ${isRevealed ? 'is-revealed' : ''}`}
         ref={containerRef}
-        style={{ padding: '90px 24px' }}
       >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', maxWidth: '960px', margin: '0 auto' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '960px', margin: '0 auto' }}>
           {fullSteps.map((step, idx) => {
             const isActive = activeStep === idx;
             return (
@@ -133,16 +132,6 @@ export default function ProcessView({ navigate }) {
                   if (e.key === 'Enter' || e.key === ' ') {
                     handleManualSelect(idx);
                   }
-                }}
-                style={{
-                  background: 'var(--surface-white)',
-                  border: isActive ? '1px solid var(--brand-navy)' : '1px solid var(--border-light)',
-                  borderRadius: 'var(--radius-lg)',
-                  padding: '38px 34px',
-                  boxShadow: isActive ? 'var(--shadow-card-hover)' : 'var(--shadow-subtle)',
-                  transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                  position: 'relative',
-                  overflow: 'hidden'
                 }}
               >
                 {/* Subtle active indicator bar */}
@@ -230,7 +219,7 @@ export default function ProcessView({ navigate }) {
               navigate('contact');
             }}
           >
-            <span>DISCUSS YOUR PROJECT ROADMAP</span>
+            <span>START YOUR PROJECT</span>
             <span className="btn-arrow">↗</span>
           </a>
         </div>

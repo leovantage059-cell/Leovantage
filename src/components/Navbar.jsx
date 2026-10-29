@@ -101,6 +101,17 @@ export default function Navbar({ currentRoute, navigate }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileOpen]);
 
+  // Lock body scroll when mobile navigation is open to prevent background scrolling
+  useEffect(() => {
+    if (mobileOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [mobileOpen]);
+
   return (
     <>
       <header

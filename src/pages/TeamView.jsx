@@ -12,19 +12,19 @@ export default function TeamView({ navigate }) {
     <div className="page-view">
       <div className="page-hero-light">
         <div className="container">
-          <div className="sub-title">THE COLLECTIVE</div>
-          <h1 className="headline-mega dark">PEOPLE FIRST.</h1>
+          <div className="sub-title">OUR TEAM</div>
+          <h1 className="headline-mega dark">MEET OUR TEAM.</h1>
           <p className="hero-subcopy">
-            A small, elite squad of developers, designers, and strategists obsessed with perfection.
+            A dedicated team of developers, designers, and product specialists focused on building reliable digital products.
           </p>
         </div>
       </div>
 
-      <div className="container" style={{ padding: '90px 24px' }}>
+      <div className="container page-content-container">
         {/* Founders Block */}
         <div style={{ marginBottom: '30px' }}>
-          <div className="sub-title">CO-FOUNDERS</div>
-          <h2 className="headline-section">FOUNDING TEAM.</h2>
+          <div className="sub-title">LEADERSHIP</div>
+          <h2 className="headline-section">FOUNDERS.</h2>
         </div>
 
         {/* SVG Definition for Reference Image 2 Scallop 3-Arch Silhouette */}
@@ -88,8 +88,8 @@ export default function TeamView({ navigate }) {
 
         {/* Core Team Members */}
         <div style={{ marginBottom: '30px' }}>
-          <div className="sub-title">CORE SPECIALISTS</div>
-          <h2 className="headline-section">ENGINEERING &amp; DESIGN SQUAD.</h2>
+          <div className="sub-title">SPECIALISTS</div>
+          <h2 className="headline-section">DESIGN &amp; DEVELOPMENT TEAM.</h2>
         </div>
 
         <div
@@ -121,19 +121,10 @@ export default function TeamView({ navigate }) {
           ))}
         </div>
 
-        {/* Values / Culture Block (Deliberate Navy Moment - Typographic and Clean) */}
-        <div
-          style={{
-            background: 'var(--brand-navy)',
-            borderRadius: 'var(--radius-xl)',
-            padding: '60px 50px',
-            color: 'var(--text-light)',
-            marginBottom: '70px',
-            border: '1px solid rgba(245, 247, 242, 0.1)'
-          }}
-        >
+        {/* Values / Culture Block */}
+        <div className="team-values-block">
           <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 50px auto' }}>
-            <div className="sub-title light">OUR DNA</div>
+            <div className="sub-title light">OUR VALUES</div>
             <h2 className="headline-section light">WHAT WE STAND FOR.</h2>
           </div>
           <div className="pricing-table-grid" style={{ marginTop: 0 }}>
@@ -150,28 +141,19 @@ export default function TeamView({ navigate }) {
           </div>
         </div>
 
-        {/* Careers Teaser (Light Neutral Panel) */}
-        <div
-          style={{
-            textAlign: 'center',
-            padding: '50px 30px',
-            background: 'var(--surface-white)',
-            borderRadius: 'var(--radius-xl)',
-            border: '1px solid var(--border-light)',
-            boxShadow: 'var(--shadow-subtle)'
-          }}
-        >
+        {/* Careers Teaser */}
+        <div className="team-careers-block">
           <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', color: 'var(--text-dark)', marginBottom: '10px' }}>
-            Want to build the future of the web with us?
+            Interested in working with us?
           </h3>
           <p style={{ color: 'var(--text-dark-secondary)', fontSize: '0.95rem', marginBottom: '24px' }}>
-            We're always looking for senior frontend engineers and meticulous UI designers.
+            We're always looking for talented frontend engineers and thoughtful UI designers.
           </p>
           <a
             href="mailto:careers@leovantage.com"
             className="btn-pill-dark"
           >
-            <span>JOIN THE STUDIO SQUAD</span>
+            <span>VIEW CAREER OPPORTUNITIES</span>
             <span className="btn-arrow">↗</span>
           </a>
         </div>

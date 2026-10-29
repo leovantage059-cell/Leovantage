@@ -12,8 +12,8 @@ export default function TeamSection({ navigate }) {
       <div className="container">
         <div className="section-header-row">
           <div>
-            <div className="sub-title">LEADERSHIP</div>
-            <h2 className="headline-section">THE MINDS BEHIND.</h2>
+            <div className="sub-title">OUR TEAM</div>
+            <h2 className="headline-section">MEET OUR FOUNDERS.</h2>
           </div>
           <a
             href="#/team"
@@ -23,7 +23,7 @@ export default function TeamSection({ navigate }) {
               navigate('team');
             }}
           >
-            <span>MEET FULL TEAM</span>
+            <span>VIEW FULL TEAM</span>
             <span className="btn-arrow">↗</span>
           </a>
         </div>

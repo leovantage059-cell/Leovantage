@@ -15,8 +15,8 @@ export default function ReviewsCarousel({ navigate }) {
       <div className="container">
         <div className="section-header-row">
           <div>
-            <div className="sub-title">TESTIMONIALS</div>
-            <h2 className="headline-section">CLIENT EXPERIENCES.</h2>
+            <div className="sub-title">CLIENT REVIEWS</div>
+            <h2 className="headline-section">WHAT CLIENTS SAY.</h2>
           </div>
           <a
             href="#/reviews"
@@ -26,7 +26,7 @@ export default function ReviewsCarousel({ navigate }) {
               navigate('reviews');
             }}
           >
-            <span>ALL REVIEWS (4.9/5)</span>
+            <span>VIEW ALL REVIEWS (4.9/5)</span>
             <span className="btn-arrow">↗</span>
           </a>
         </div>

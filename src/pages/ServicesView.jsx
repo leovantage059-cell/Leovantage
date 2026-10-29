@@ -72,15 +72,15 @@ export default function ServicesView({ navigate }) {
     <div className="page-view">
       <div className="page-hero-light">
         <div className="container">
-          <div className="sub-title">OUR CAPABILITIES</div>
-          <h1 className="headline-mega dark">SERVICES &amp; PACKAGES.</h1>
+          <div className="sub-title">WHAT WE DO</div>
+          <h1 className="headline-mega dark">OUR SERVICES &amp; PRICING.</h1>
           <p className="hero-subcopy">
-            Engineered for high performance, intuitive human experiences, and continuous conversion.
+            We design and build reliable websites and applications tailored to your business needs and users.
           </p>
         </div>
       </div>
 
-      <div className="container" style={{ padding: '90px 24px' }}>
+      <div className="container page-content-container">
         {/* 8 Full Services Grid */}
         <div
           ref={servicesRef}
@@ -114,7 +114,7 @@ export default function ServicesView({ navigate }) {
                   }}
                   aria-label={`Get quote for ${service.title}`}
                 >
-                  QUOTE ↗
+                  GET A QUOTE ↗
                 </a>
               </div>
             </div>
@@ -123,10 +123,10 @@ export default function ServicesView({ navigate }) {
 
         {/* Pricing Packages Block */}
         <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-          <div className="sub-title">TRANSPARENT PRICING</div>
-          <h2 className="headline-section">INVESTMENT PLANS.</h2>
+          <div className="sub-title">PRICING</div>
+          <h2 className="headline-section">PRICING PACKAGES.</h2>
           <p style={{ color: 'var(--text-dark-secondary)', maxWidth: '600px', margin: '12px auto 0 auto' }}>
-            Choose a tier that matches your business scale. Custom enterprise quotes available upon request.
+            Choose a plan that fits your business stage. Custom quotes are available for specialized requirements.
           </p>
         </div>
 

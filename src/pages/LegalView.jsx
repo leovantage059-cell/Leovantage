@@ -5,13 +5,13 @@ export function PrivacyView() {
     <div className="page-view" style={{ background: 'var(--surface-light)' }}>
       <div className="page-hero-light">
         <div className="container">
-          <div className="sub-title">LEGAL COMPLIANCE</div>
+          <div className="sub-title">PRIVACY POLICY</div>
           <h1 className="headline-mega">PRIVACY POLICY.</h1>
           <p className="hero-subcopy">Last updated: October 2026 • LeoVantage Web Studio</p>
         </div>
       </div>
-      <div className="container-narrow" style={{ padding: '80px 24px', lineHeight: 1.8, color: 'var(--text-dark-secondary)' }}>
-        <div style={{ background: '#FFFFFF', padding: '48px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-subtle)' }}>
+      <div className="container-narrow legal-container">
+        <div className="legal-card">
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', color: 'var(--text-dark)', margin: '0 0 12px 0' }}>
             1. Information We Collect
           </h2>
@@ -48,13 +48,13 @@ export function TermsView() {
     <div className="page-view" style={{ background: 'var(--surface-light)' }}>
       <div className="page-hero-light">
         <div className="container">
-          <div className="sub-title">TERMS &amp; CONDITIONS</div>
+          <div className="sub-title">TERMS OF SERVICE</div>
           <h1 className="headline-mega">TERMS OF SERVICE.</h1>
           <p className="hero-subcopy">Last updated: October 2026 • LeoVantage Web Studio</p>
         </div>
       </div>
-      <div className="container-narrow" style={{ padding: '80px 24px', lineHeight: 1.8, color: 'var(--text-dark-secondary)' }}>
-        <div style={{ background: '#FFFFFF', padding: '48px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-subtle)' }}>
+      <div className="container-narrow legal-container">
+        <div className="legal-card">
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', color: 'var(--text-dark)', margin: '0 0 12px 0' }}>
             1. Acceptance of Terms
           </h2>

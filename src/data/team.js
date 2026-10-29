@@ -7,14 +7,14 @@ export const FOUNDERS = [
     image: '/team/rahul.jpg',
     experience: '8+ Years',
     location: 'Bengaluru, India',
-    quote: 'Architecture is not just how it looks, but how effortlessly it scales when millions hit the servers simultaneously.',
-    bio: 'Architects mission-critical backend microservices, real-time databases, and full-stack system topologies with absolute performance.',
-    extendedBio: 'Rahul heads the core engineering architecture at LeoVantage Web Studio. With over 8 years of deep technical mastery building distributed web backends and high-concurrency systems, he guarantees sub-second database transactions, offline sync engines, and ironclad cloud infrastructure for all client engagements.',
+    quote: 'Good architecture is not just how software looks, but how reliably it performs as your user base grows.',
+    bio: 'Designs secure backend systems, database architectures, and full-stack web applications with reliable performance.',
+    extendedBio: 'Rahul leads backend and systems architecture at LeoVantage Web Studio. With over 8 years of technical experience building web backends and data pipelines, he focuses on fast database performance, reliable offline sync, and secure cloud infrastructure for every project.',
     skills: ['Systems Arch', 'Node.js', 'PostgreSQL', 'Docker', 'Redis', 'Kubernetes', 'WebSockets'],
     highlights: [
-      'Engineered backend systems handling 50k+ concurrent real-time transactions with 99.98% uptime SLA.',
-      'Designed zero-latency data pipelines for Hisaab Ledger and PID Education platform.',
-      'Specialist in edge-caching architectures that reduce cloud hosting bills by up to 40%.'
+      'Engineered backend systems handling 50k+ concurrent transactions.',
+      'Designed data pipelines for the Hisaab budgeting app and PID Education platform.',
+      'Implements edge caching and server optimizations to keep hosting costs efficient.'
     ],
     social: {
       github: 'https://github.com',
@@ -30,13 +30,13 @@ export const FOUNDERS = [
     image: '/team/gulesh.jpg',
     experience: '7+ Years',
     location: 'Bengaluru, India',
-    quote: 'Every micro-interaction should feel intuitive, alive, and distinctly engineered with purpose.',
-    bio: 'Spearheads visual design systems, brand identities, and client relationships, creating memorable interfaces that resonate globally.',
-    extendedBio: 'Gulesh drives the creative philosophy and visual identity across all LeoVantage digital products. Combining technical frontend understanding with haute-couture digital art direction, he crafts bespoke design tokens, fluid motion choreographies, and high-converting visual systems that turn standard software into category-defining digital flagships.',
+    quote: 'Every interaction should feel clear, natural, and built with purpose.',
+    bio: 'Leads UI/UX design, brand identity systems, and client collaboration to build clean, user-friendly digital products.',
+    extendedBio: 'Gulesh directs the visual design and creative strategy across LeoVantage digital products. Combining a strong understanding of frontend code with clean visual design, he creates intuitive interfaces, consistent design systems, and responsive layouts that help businesses communicate clearly.',
     skills: ['Brand Strategy', 'UI/UX Design', 'Creative Vision', 'Design Systems', 'Figma Tokens', 'Micro-Interactions'],
     highlights: [
-      'Crafted award-worthy UI design systems for D2C brands, ERP enterprise consoles, and Fintech startups.',
-      'Pioneered LeoVantage’s signature restrained motion framework combining physics with 60FPS fluid aesthetics.',
+      'Designed complete UI systems for D2C brands, educational portals, and fintech tools.',
+      'Built LeoVantage’s responsive interaction system focused on speed and clean mobile usability.',
       'Over 40+ brand identities established across 8 countries.'
     ],
     social: {
@@ -53,14 +53,14 @@ export const FOUNDERS = [
     image: '/team/nitin.jpg',
     experience: '8+ Years',
     location: 'Bengaluru, India',
-    quote: 'Great products happen at the rigorous intersection of user empathy, agile sprints, and relentless KPI focus.',
-    bio: 'Directs product lifecycles, user journeys, and technical execution, making sure every deliverable exceeds business KPIs.',
-    extendedBio: 'Nitin oversees product discovery, sprint operations, and institutional client partnerships at LeoVantage. With an extensive background bridging commercial objectives with technical execution, he ensures projects ship on time, budgets are respected with zero bloat, and user retention milestones are consistently smashed.',
+    quote: 'Great products come from understanding user needs, maintaining clear roadmaps, and delivering on time.',
+    bio: 'Manages product planning, client communication, and delivery schedules to ensure projects launch smoothly.',
+    extendedBio: 'Nitin oversees product discovery, project schedules, and client partnerships at LeoVantage. With a background connecting business goals to practical software delivery, he ensures projects launch on time, communication stays transparent, and requirements are fully met.',
     skills: ['Product Mgmt', 'Agile Sprints', 'Client Success', 'Growth Tech', 'User Research', 'Product Roadmapping'],
     highlights: [
-      'Maintained LeoVantage’s 99.8% on-time milestone delivery record across 40+ successful digital launches.',
-      'Achieved average 35% user retention jumps for client platforms within 60 days of launch.',
-      'Directs agile sprint ceremonies, client transparency portals, and post-launch QA monitoring.'
+      'Maintained a strong track record of on-time milestone delivery across 40+ project launches.',
+      'Helps clients define clear scopes and metrics for their digital launches.',
+      'Runs weekly demos, transparent project boards, and post-launch review sessions.'
     ],
     social: {
       github: 'https://github.com',
@@ -76,7 +76,7 @@ export const CORE_TEAM = [
     name: 'Aarav Kapoor',
     role: 'Senior UI/UX Designer',
     initials: 'AK',
-    bio: 'Obsessed with micro-interactions, accessibility compliance, and pixel-perfect design token systems in Figma.',
+    bio: 'Focuses on user research, clear component layouts, and accessible design systems in Figma.',
     skills: ['Figma', 'Prototyping', 'WCAG AA', 'Design Tokens']
   },
   {
@@ -84,7 +84,7 @@ export const CORE_TEAM = [
     name: 'Pooja Sharma',
     role: 'Frontend Motion Engineer',
     initials: 'PS',
-    bio: 'Specializes in smooth WebGL animations, CSS 3D transforms, and blazing-fast Core Web Vitals optimization.',
+    bio: 'Specializes in modern React frontends, responsive animations, and fast web performance.',
     skills: ['React', 'CSS 3D', 'Three.js / WebGL', 'Performance']
   },
   {
@@ -92,7 +92,7 @@ export const CORE_TEAM = [
     name: 'Varun Rao',
     role: 'Mobile Architect (Expo)',
     initials: 'VR',
-    bio: 'Constructs cross-platform React Native apps with seamless offline capabilities and biometric hardware bridges.',
+    bio: 'Builds cross-platform mobile apps with React Native, emphasizing offline reliability and clean navigation.',
     skills: ['React Native', 'Expo', 'Mobile Security', 'Offline First']
   },
   {
@@ -100,22 +100,22 @@ export const CORE_TEAM = [
     name: 'Tanvi Nair',
     role: 'SEO & Growth Analyst',
     initials: 'TN',
-    bio: 'Crafts structured semantic schemas, content blueprints, and high-converting funnel optimizations for our clients.',
+    bio: 'Focuses on technical SEO, semantic HTML structure, and conversion-friendly page layouts.',
     skills: ['Technical SEO', 'Schema Markup', 'Analytics', 'Conversion Rate']
   }
 ];
 
 export const VALUES = [
   {
-    title: 'Craft Over Compromise',
-    desc: 'We never use bloated pre-made templates. Every line of code and every pixel is crafted intentionally for your brand.'
+    title: 'Custom Craftsmanship',
+    desc: 'We do not rely on generic, bloated templates. Every website and app is built intentionally to serve your business and audience.'
   },
   {
-    title: 'Radical Transparency',
-    desc: 'You have full visibility into our staging builds, sprint boards, and source repositories. No hidden costs or technical jargon.'
+    title: 'Clear Transparency',
+    desc: 'You have direct access to preview links, progress milestones, and code repositories. We speak plainly without technical jargon.'
   },
   {
-    title: 'Engineered for Speed',
-    desc: 'Speed is our primary feature. We obsess over sub-second latency, zero layout shift, and immediate interaction feedback.'
+    title: 'Built for Speed',
+    desc: 'Fast websites keep visitors engaged. We optimize every asset, query, and layout so your pages load quickly on any device.'
   }
 ];

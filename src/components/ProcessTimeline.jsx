@@ -80,11 +80,10 @@ export default function ProcessTimeline({ navigate }) {
       <div className="container">
         <div className="process-grid">
           <div className="process-sticky-left">
-            <div className="sub-title light">HOW WE DELIVER</div>
-            <h2 className="headline-section light">A BULLETPROOF PROCESS.</h2>
+            <div className="sub-title light">OUR WORKFLOW</div>
+            <h2 className="headline-section light">HOW WE WORK.</h2>
             <p style={{ color: 'rgba(255,255,255,0.75)', margin: '20px 0 32px 0', maxWidth: '440px' }}>
-              Every project runs through our battle-tested 6-step lifecycle. No surprises, no missed deadlines, only
-              transparent progress.
+              Every project follows a clear, step-by-step plan from discovery to launch. You always know what is being built, what comes next, and when it will be ready.
             </p>
             <a
               href="#/process"

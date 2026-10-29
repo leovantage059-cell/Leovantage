@@ -1,22 +1,11 @@
-import React, { useState } from 'react';
-import { PROJECTS } from '../data/projects';
+import React, { useState, useEffect } from 'react';
+import { PROJECTS as defaultProjects } from '../data/projects';
+import { getPublishedProjects } from '../services/publicContentService';
 import { useScrollReveal } from '../utils/motion';
 
 function ProjectVisualPreview({ project }) {
   return (
-    <div
-      style={{
-        height: '190px',
-        background: '#121A2E',
-        borderRadius: '14px',
-        marginBottom: '20px',
-        display: 'flex',
-        flexDirection: 'column',
-        overflow: 'hidden',
-        border: '1px solid rgba(255, 255, 255, 0.12)',
-        position: 'relative'
-      }}
-    >
+    <div className="project-archive-visual">
       <div
         style={{
           height: '28px',
@@ -117,7 +106,18 @@ function ProjectVisualPreview({ project }) {
 
 export default function WorkView({ navigate }) {
   const [filter, setFilter] = useState('all');
+  const [allProjects, setAllProjects] = useState(defaultProjects);
   const { ref: containerRef, isRevealed } = useScrollReveal();
+
+  useEffect(() => {
+    let isMounted = true;
+    getPublishedProjects().then((projs) => {
+      if (isMounted && projs && projs.length > 0) {
+        setAllProjects(projs);
+      }
+    });
+    return () => { isMounted = false; };
+  }, []);
 
   const filterTabs = [
     { label: 'ALL WORK', val: 'all' },
@@ -128,24 +128,23 @@ export default function WorkView({ navigate }) {
   ];
 
   const filteredProjects =
-    filter === 'all' ? PROJECTS : PROJECTS.filter((p) => p.category.includes(filter));
+    filter === 'all' ? allProjects : allProjects.filter((p) => (p.category || '').includes(filter));
 
   return (
     <div className="page-view">
       <div className="page-hero-banner" id="projectHeroBanner">
         <div className="container">
-          <div className="sub-title light">PORTFOLIO ARCHIVE</div>
-          <h1 className="headline-mega">SELECTED WORK.</h1>
+          <div className="sub-title light">OUR WORK</div>
+          <h1 className="headline-mega">PROJECTS &amp; CASE STUDIES.</h1>
           <p className="hero-subcopy">
-            A showcase of digital products, platforms, and applications delivered with precision.
+            Explore websites, web applications, and mobile apps we have planned, built, and launched for our clients.
           </p>
         </div>
       </div>
 
       <div
-        className={`container ${isRevealed ? 'is-revealed' : ''}`}
+        className={`container work-archive-container ${isRevealed ? 'is-revealed' : ''}`}
         ref={containerRef}
-        style={{ padding: '80px 24px' }}
       >
         {/* Filter Tabs */}
         <div className="filter-tabs-row" role="tablist" aria-label="Project Category Filter">
@@ -201,7 +200,7 @@ export default function WorkView({ navigate }) {
                   }}
                   aria-label={`View Case Study for ${project.title}`}
                 >
-                  CASE STUDY ↗
+                  VIEW CASE STUDY ↗
                 </a>
               </div>
             </div>

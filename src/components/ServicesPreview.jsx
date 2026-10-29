@@ -59,8 +59,8 @@ export default function ServicesPreview({ navigate }) {
       <div className="container">
         <div className="section-header-row">
           <div>
-            <div className="sub-title">CORE DISCIPLINES</div>
-            <h2 className="headline-section">WHAT WE BUILD.</h2>
+            <div className="sub-title">OUR SERVICES</div>
+            <h2 className="headline-section">SERVICES WE PROVIDE</h2>
           </div>
           <a
             href="#/services"
@@ -70,7 +70,7 @@ export default function ServicesPreview({ navigate }) {
               navigate('services');
             }}
           >
-            <span>EXPLORE ALL SERVICES</span>
+            <span>VIEW ALL SERVICES</span>
             <span className="btn-arrow">↗</span>
           </a>
         </div>

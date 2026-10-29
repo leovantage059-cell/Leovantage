@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PROJECTS } from '../data/projects';
+import { getProjectBySlug } from '../services/publicContentService';
 import { useScrollReveal } from '../utils/motion';
 
 export default function CaseStudyView({ slug, navigate }) {
-  const project = PROJECTS.find((p) => p.id === slug) || PROJECTS[0];
+  const [project, setProject] = useState(() => PROJECTS.find((p) => p.id === slug) || PROJECTS[0]);
+
+  useEffect(() => {
+    let isMounted = true;
+    getProjectBySlug(slug).then((proj) => {
+      if (isMounted && proj) {
+        setProject(proj);
+      }
+    });
+    return () => { isMounted = false; };
+  }, [slug]);
+
   const { ref: contentRef, isRevealed } = useScrollReveal();
 
   return (
@@ -87,33 +99,11 @@ export default function CaseStudyView({ slug, navigate }) {
           </div>
 
           {/* Interactive Mockup Frame */}
-          <div
-            style={{
-              margin: '60px 0',
-              background: 'var(--surface-light)',
-              borderRadius: 'var(--radius-xl)',
-              padding: '44px 30px',
-              border: '1px solid var(--border-light)',
-              textAlign: 'center'
-            }}
-          >
+          <div className="cs-mockup-panel">
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', color: 'var(--text-dark)', marginBottom: '22px' }}>
-              SYSTEM ARCHITECTURE PREVIEW
+              INTERFACE &amp; SYSTEM PREVIEW
             </h3>
-            <div
-              style={{
-                maxWidth: '760px',
-                height: '340px',
-                margin: '0 auto',
-                background: '#121A2E',
-                borderRadius: '16px',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                boxShadow: 'var(--shadow-card-hover)',
-                display: 'flex',
-                flexDirection: 'column',
-                overflow: 'hidden'
-              }}
-            >
+            <div className="cs-mockup-frame">
               <div
                 style={{
                   height: '32px',
@@ -155,7 +145,7 @@ export default function CaseStudyView({ slug, navigate }) {
                   {project.mockTitle}
                 </div>
                 <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.95rem', marginTop: '10px', maxWidth: '520px' }}>
-                  Zero-latency real-time performance and seamless cross-platform reliability for {project.client}.
+                  Fast performance, clean design, and reliable cross-platform functionality for {project.client}.
                 </p>
                 <div style={{ display: 'flex', gap: '8px', marginTop: '18px', flexWrap: 'wrap', justifyContent: 'center' }}>
                   {project.tech.map((t) => (
@@ -178,16 +168,7 @@ export default function CaseStudyView({ slug, navigate }) {
           </div>
 
           {/* Testimonial Quote */}
-          <div
-            style={{
-              background: 'var(--surface-light)',
-              border: '1px solid var(--border-light)',
-              borderLeft: '4px solid var(--brand-navy)',
-              padding: '34px 40px',
-              borderRadius: '0 var(--radius-md) var(--radius-md) 0',
-              marginBottom: '60px'
-            }}
-          >
+          <div className="cs-quote-card">
             <p style={{ fontSize: '1.15rem', fontStyle: 'italic', color: 'var(--text-dark)', marginBottom: '14px', lineHeight: 1.6 }}>
               {project.quote}
             </p>
@@ -197,15 +178,7 @@ export default function CaseStudyView({ slug, navigate }) {
           </div>
 
           {/* Navigation Controls */}
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              borderTop: '1px solid var(--border-light)',
-              paddingTop: '30px'
-            }}
-          >
+          <div className="cs-bottom-nav">
             <a
               href="#/work"
               className="btn-pill-dark"

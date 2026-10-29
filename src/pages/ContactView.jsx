@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { submitContactInquiry } from '../services/publicContentService';
 
 export default function ContactView() {
   const [formData, setFormData] = useState({
@@ -13,20 +14,39 @@ export default function ContactView() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
+    if (errorMessage) setErrorMessage('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setErrorMessage('');
+
+    try {
+      await submitContactInquiry(formData);
       setSubmitted(true);
-      console.log('[LeoVantage Brief Submitted]:', formData);
-    }, 450);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        budget: '',
+        timeline: 'Immediately (Within 3 weeks)',
+        message: ''
+      });
+    } catch (err) {
+      console.error('[LeoVantage Contact Form Error]:', err);
+      setErrorMessage(err.message || 'Unable to send your inquiry. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -34,9 +54,9 @@ export default function ContactView() {
       <div className="page-hero-light">
         <div className="container">
           <div className="sub-title">GET IN TOUCH</div>
-          <h1 className="headline-mega">LET'S TALK.</h1>
+          <h1 className="headline-mega">CONTACT US.</h1>
           <p className="hero-subcopy">
-            Tell us about your product goals, desired timeline, and scope. We'll reply within 24 hours.
+            Tell us about your project goals, timeline, and requirements. We reply within 24 hours.
           </p>
         </div>
       </div>
@@ -46,7 +66,7 @@ export default function ContactView() {
           {/* Left: Project Brief Form */}
           <div className="contact-form-card">
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', marginBottom: '24px', color: 'var(--text-dark)' }}>
-              Project Brief Form
+              Start a Project
             </h3>
             <form onSubmit={handleSubmit}>
               <div className="form-row">
@@ -63,7 +83,7 @@ export default function ContactView() {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="email">Work Email *</label>
+                  <label htmlFor="email">Email Address *</label>
                   <input
                     type="email"
                     id="email"
@@ -89,7 +109,7 @@ export default function ContactView() {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="service">Required Service *</label>
+                  <label htmlFor="service">Service Needed *</label>
                   <select
                     id="service"
                     className="form-control"
@@ -110,7 +130,7 @@ export default function ContactView() {
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="budget">Estimated Budget *</label>
+                  <label htmlFor="budget">Budget Range *</label>
                   <select
                     id="budget"
                     className="form-control"
@@ -126,7 +146,7 @@ export default function ContactView() {
                   </select>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="timeline">Target Launch</label>
+                  <label htmlFor="timeline">Desired Timeline</label>
                   <select
                     id="timeline"
                     className="form-control"
@@ -141,12 +161,12 @@ export default function ContactView() {
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Project Overview &amp; Goals *</label>
+                <label htmlFor="message">Project Details *</label>
                 <textarea
                   id="message"
                   className="form-control"
                   rows="4"
-                  placeholder="Briefly describe what you want to achieve, key features, and any reference websites..."
+                  placeholder="Tell us what you want to build, key features you need, and any reference websites..."
                   value={formData.message}
                   onChange={handleChange}
                   required
@@ -164,9 +184,31 @@ export default function ContactView() {
                 }}
                 disabled={isSubmitting}
               >
-                <span>{isSubmitting ? 'TRANSMITTING BRIEF...' : 'SEND PROJECT INQUIRY'}</span>
+                <span>{isSubmitting ? 'SENDING INQUIRY...' : 'SEND INQUIRY'}</span>
                 <span className="btn-arrow">↗</span>
               </button>
+
+              {errorMessage && (
+                <div
+                  className="form-error-banner"
+                  role="alert"
+                  aria-live="polite"
+                  style={{
+                    display: 'block',
+                    marginTop: '16px',
+                    padding: '14px 18px',
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(244, 63, 94, 0.12)',
+                    border: '1px solid #F43F5E',
+                    color: '#F43F5E',
+                    fontSize: '0.9rem',
+                    fontWeight: 500,
+                    animation: 'fadeIn 0.3s ease-out'
+                  }}
+                >
+                  ⚠️ {errorMessage}
+                </div>
+              )}
 
               {submitted && (
                 <div
@@ -175,7 +217,7 @@ export default function ContactView() {
                   aria-live="polite"
                   style={{ display: 'block', animation: 'fadeIn 0.3s ease-out' }}
                 >
-                  🎉 Thank you! Your project brief has been received. Our co-founders will reach out within 24 hours.
+                  🎉 Thank you! Your message has been received. We will get back to you within 24 hours.
                 </div>
               )}
             </form>
@@ -222,7 +264,7 @@ export default function ContactView() {
             <div className="styled-map-container" title="LeoVantage Web Studio Headquarters">
               <div className="map-grid-mesh" />
               <div className="map-pin-pulse">
-                <div className="map-pin-bubble">LEOVANTAGE STUDIO HQ</div>
+                <div className="map-pin-bubble">LEOVANTAGE WEB STUDIO</div>
                 {/* PLACEHOLDER: replace with real city/address */}
                 <span style={{ fontSize: '0.76rem', color: 'var(--brand-lime)', fontWeight: 600 }}>
                   Bengaluru, Karnataka, India
@@ -230,7 +272,7 @@ export default function ContactView() {
               </div>
             </div>
 
-            {/* Schedule Call Callout - Deliberate Dark Contrast Surface */}
+            {/* Schedule Call Callout */}
             <div
               style={{
                 background: 'var(--brand-navy)',
@@ -243,10 +285,10 @@ export default function ContactView() {
               }}
             >
               <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', marginBottom: '8px', color: 'var(--text-light)' }}>
-                Need an instant consultation?
+                Prefer a direct conversation?
               </h4>
               <p style={{ color: 'var(--text-light-secondary)', fontSize: '0.85rem', marginBottom: '18px' }}>
-                Skip the brief and book a 20-minute video strategy call directly with our technical co-founders.
+                Book a 20-minute video call to discuss your project requirements with our founders.
               </p>
               <a
                 href="https://calendly.com"
@@ -255,7 +297,7 @@ export default function ContactView() {
                 className="btn-pill-mint"
                 style={{ justifyContent: 'center', width: '100%' }}
               >
-                <span>BOOK A FREE DISCOVERY CALL</span>
+                <span>SCHEDULE A 20-MIN CALL</span>
                 <span>↗</span>
               </a>
             </div>

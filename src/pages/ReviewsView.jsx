@@ -16,31 +16,19 @@ export default function ReviewsView() {
     <div className="page-view">
       <div className="page-hero-light">
         <div className="container">
-          <div className="sub-title">VERIFIED TESTIMONIALS</div>
-          <h1 className="headline-mega dark">CLIENT REVIEWS.</h1>
+          <div className="sub-title">CLIENT REVIEWS</div>
+          <h1 className="headline-mega dark">WHAT CLIENTS SAY.</h1>
           <p className="hero-subcopy">
-            Read what founders, institutional directors, and product leaders say about working with LeoVantage.
+            Read feedback from founders, business owners, and product teams who work with LeoVantage.
           </p>
         </div>
       </div>
 
-      <div className="container" style={{ padding: '90px 24px' }}>
+      <div className="container reviews-view-container">
         {/* Rating Summary Bar Breakdown */}
         <div
           ref={summaryRef}
           className={`rating-summary-card ${summaryRevealed ? 'is-revealed' : ''}`}
-          style={{
-            background: 'var(--surface-white)',
-            borderRadius: 'var(--radius-xl)',
-            padding: '44px 40px',
-            border: '1px solid var(--border-light)',
-            boxShadow: 'var(--shadow-card)',
-            marginBottom: '60px',
-            display: 'grid',
-            gridTemplateColumns: '0.8fr 1.2fr',
-            gap: '40px',
-            alignItems: 'center'
-          }}
         >
           <div style={{ textAlign: 'center' }}>
             <div
@@ -58,7 +46,7 @@ export default function ReviewsView() {
               ★★★★★
             </div>
             <div style={{ fontSize: '0.85rem', color: 'var(--text-dark-secondary)', fontWeight: 600 }}>
-              Based on {RATING_SUMMARY.reviewsCount} Verified Client Engagements
+              Based on {RATING_SUMMARY.reviewsCount} client reviews
             </div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -114,7 +102,6 @@ export default function ReviewsView() {
         <div
           ref={gridRef}
           className={`reviews-page-grid ${gridRevealed ? 'is-revealed' : ''}`}
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}
         >
           {REVIEWS.map((rev, idx) => (
             <div

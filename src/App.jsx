@@ -28,7 +28,7 @@ export default function App() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
       // Update document title
-      let title = 'LeoVantage Web Studio | DESIGN. DEVELOP. DELIVER.';
+      let title = 'LeoVantage Web Studio | PLAN. BUILD. LAUNCH.';
       if (hash.startsWith('work/')) {
         const slug = hash.replace('work/', '');
         title = `${slug.toUpperCase()} | Case Study | LeoVantage`;

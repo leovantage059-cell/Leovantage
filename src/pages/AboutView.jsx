@@ -7,23 +7,23 @@ export default function AboutView() {
   const milestones = [
     {
       year: '2023',
-      title: 'Studio Inception',
-      desc: 'Founded as a boutique engineering laboratory for custom web applications.'
+      title: 'Studio Founded',
+      desc: 'Started as a focused web studio building custom websites and web applications.'
     },
     {
       year: '2024',
-      title: 'Mobile Expansion',
-      desc: 'Expanded to React Native and Expo engineering, releasing our first institutional apps.'
+      title: 'Mobile App Development',
+      desc: 'Expanded into cross-platform mobile development using React Native and Expo.'
     },
     {
       year: '2025',
-      title: 'ERP & Enterprise Products',
-      desc: 'Launched PID Education and Hisaab, reaching over 50,000 active monthly users.'
+      title: 'Management & Finance Platforms',
+      desc: 'Launched major web platforms, including PID Education and Hisaab, serving active monthly users.'
     },
     {
       year: '2026',
-      title: 'Global Digital Footprint',
-      desc: 'Serving clients across 14 countries with award-level UI/UX and bespoke product engines.'
+      title: 'Expanding Client Reach',
+      desc: 'Delivering custom websites and apps for growing businesses across multiple industries.'
     }
   ];
 
@@ -31,39 +31,31 @@ export default function AboutView() {
     <div className="page-view">
       <div className="page-hero-light">
         <div className="container">
-          <div className="sub-title">STUDIO ORIGIN</div>
+          <div className="sub-title">ABOUT US</div>
           <h1 className="headline-mega dark">OUR STORY.</h1>
           <p className="hero-subcopy">
-            Born from a desire to rid the internet of sluggish, generic templates.
+            We help businesses build clean, fast, and reliable digital products that deliver real results.
           </p>
         </div>
       </div>
 
-      <div className="container" style={{ padding: '90px 24px' }}>
+      <div className="container page-content-container">
         <div className="intro-grid" style={{ marginBottom: '90px' }}>
           <div>
-            <div className="sub-title">MISSION &amp; VISION</div>
-            <h2 className="headline-section">CRAFTING DIGITAL ADVANTAGE.</h2>
+            <div className="sub-title">OUR MISSION</div>
+            <h2 className="headline-section">HELPING BUSINESSES GROW ONLINE.</h2>
             <p style={{ color: 'var(--text-dark-secondary)', fontSize: '1.05rem', lineHeight: 1.7, marginTop: '18px' }}>
-              Founded by Rahul, Gulesh Patel, and Nitin Sinha, LeoVantage Web Studio was established with a singular
-              ethos: every business deserves an uncompromising digital footprint.
+              Founded by Rahul, Gulesh Patel, and Nitin Sinha, LeoVantage Web Studio was established with a simple goal:
+              to help businesses create websites and apps that are easy to use and support real business growth.
             </p>
             <p style={{ color: 'var(--text-dark-secondary)', fontSize: '1.05rem', lineHeight: 1.7, marginTop: '14px' }}>
-              We don't view websites as passive brochures. We construct them as high-conversion revenue engines,
-              engineered with sub-second response times, bespoke visual identities, and future-proof architectures.
+              We believe a website should be more than an online brochure. It should be fast, clear, and focused on
+              helping your visitors find what they need and take action.
             </p>
           </div>
           <div
             ref={milestonesRef}
             className={`milestones-card ${isRevealed ? 'is-revealed' : ''}`}
-            style={{
-              background: 'var(--surface-white)',
-              borderRadius: 'var(--radius-xl)',
-              padding: '44px',
-              border: '1px solid var(--border-light)',
-              boxShadow: 'var(--shadow-subtle)',
-              position: 'relative'
-            }}
           >
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--text-dark)', marginBottom: '26px' }}>
               Studio Milestones

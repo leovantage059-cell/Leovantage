@@ -59,7 +59,7 @@ export default function TrustedMarquee() {
     <section className="trusted-strip" aria-label="Clients & Partners">
       <div className="container">
         <div className="trusted-caption">
-          Trusted Clients &amp; Tech Collaborators From Around The World
+          Teams and businesses we work with
         </div>
       </div>
       <div

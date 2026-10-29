@@ -14,8 +14,8 @@ export default function FaqAccordion() {
     <section className={`section-faq ${isRevealed ? 'is-revealed' : ''}`} ref={sectionRef}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <div className="sub-title">GOT QUESTIONS?</div>
-          <h2 className="headline-section">FREQUENTLY ASKED.</h2>
+          <div className="sub-title">COMMON QUESTIONS</div>
+          <h2 className="headline-section">FREQUENTLY ASKED QUESTIONS.</h2>
         </div>
 
         <div className="faq-accordion-list" role="region" aria-label="Frequently Asked Questions">

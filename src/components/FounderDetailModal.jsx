@@ -70,7 +70,7 @@ export default function FounderDetailModal({ founder, onClose }) {
                 <span className="metric-val">{founder.experience || '8+ Years'}</span>
               </div>
               <div className="quick-metric-item">
-                <span className="metric-label">HQ BASE</span>
+                <span className="metric-label">LOCATION</span>
                 <span className="metric-val">{founder.location || 'Bengaluru, India'}</span>
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function FounderDetailModal({ founder, onClose }) {
 
           {/* Right Column: Full Story, Milestones & Skills */}
           <div className="founder-modal-right">
-            <div className="sub-title">FOUNDING TEAM</div>
+            <div className="sub-title">LEADERSHIP</div>
             <h2 id="founderModalName" className="founder-modal-name">
               {founder.name}
             </h2>
@@ -118,7 +118,7 @@ export default function FounderDetailModal({ founder, onClose }) {
             )}
 
             <div className="founder-modal-bio-block">
-              <h4 className="founder-block-title">BACKGROUND &amp; IMPACT</h4>
+              <h4 className="founder-block-title">BACKGROUND &amp; ROLE</h4>
               <p className="founder-modal-bio-text">
                 {founder.extendedBio || founder.bio}
               </p>
@@ -126,7 +126,7 @@ export default function FounderDetailModal({ founder, onClose }) {
 
             {founder.highlights && founder.highlights.length > 0 && (
               <div className="founder-highlights-block">
-                <h4 className="founder-block-title">KEY TRACK RECORD</h4>
+                <h4 className="founder-block-title">KEY EXPERIENCE</h4>
                 <ul className="founder-highlights-list">
                   {founder.highlights.map((h, i) => (
                     <li key={i}>
@@ -139,7 +139,7 @@ export default function FounderDetailModal({ founder, onClose }) {
             )}
 
             <div className="founder-skills-block">
-              <h4 className="founder-block-title">CORE ARSENAL &amp; EXPERTISE</h4>
+              <h4 className="founder-block-title">CORE SKILLS &amp; EXPERTISE</h4>
               <div className="founder-skills-pills">
                 {founder.skills.map((skill) => (
                   <span key={skill} className="founder-skill-pill">
@@ -155,7 +155,7 @@ export default function FounderDetailModal({ founder, onClose }) {
                 className="btn-pill-dark"
                 style={{ width: '100%', justifyContent: 'center' }}
               >
-                <span>START A PROJECT WITH {founder.name.toUpperCase()}</span>
+                <span>GET IN TOUCH WITH {founder.name.toUpperCase()}</span>
                 <span className="btn-arrow">↗</span>
               </a>
             </div>

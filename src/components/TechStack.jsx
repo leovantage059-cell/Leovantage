@@ -20,8 +20,8 @@ export default function TechStack() {
     <section className={`section-tech ${isRevealed ? 'is-revealed' : ''}`} ref={sectionRef}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '45px' }}>
-          <div className="sub-title">TOOLKIT &amp; FRAMEWORKS</div>
-          <h2 className="headline-section">ENGINEERED FOR SCALE.</h2>
+          <div className="sub-title">TOOLS &amp; TECHNOLOGIES</div>
+          <h2 className="headline-section">OUR TECH STACK.</h2>
         </div>
 
         <div className="tech-tabs-nav" role="tablist" aria-label="Technology Stack Filter">

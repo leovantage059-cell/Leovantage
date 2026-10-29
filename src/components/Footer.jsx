@@ -34,8 +34,7 @@ export default function Footer({ navigate }) {
               <Logo variant="horizontal" theme="dark" height={48} />
             </a>
             <p className="footer-brand-desc">
-              A premium software engineering and design collective dedicated to building high-converting web
-              applications, mobile platforms, and digital brand identities.
+              We design and build websites, web applications, and mobile apps that help businesses serve their customers better.
             </p>
             <div className="footer-social-row">
               <a
@@ -113,7 +112,7 @@ export default function Footer({ navigate }) {
 
           {/* Col 3: Services */}
           <div>
-            <div className="footer-col-title">CAPABILITIES</div>
+            <div className="footer-col-title">SERVICES</div>
             <ul className="footer-links-list">
               <li>
                 <span className="footer-link" onClick={(e) => handleLink('services', e)}>
@@ -150,33 +149,32 @@ export default function Footer({ navigate }) {
 
           {/* Col 4: Newsletter & Contact */}
           <div>
-            <div className="footer-col-title">THE STUDIO DISPATCH</div>
+            <div className="footer-col-title">NEWSLETTER</div>
             <p style={{ fontSize: '0.85rem', color: 'var(--muted-light)', marginBottom: '14px' }}>
-              Receive monthly engineering essays and design insights. No spam ever.
+              Practical web and design tips delivered monthly. No spam.
             </p>
             <form className="newsletter-form" onSubmit={handleSubscribe}>
               <input
                 type="email"
                 className="newsletter-input"
-                placeholder="Your work email"
+                placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
               <button type="submit" className="newsletter-submit">
-                JOIN
+                SUBSCRIBE
               </button>
             </form>
             {subscribed && (
               <div style={{ color: 'var(--brand-lime)', fontSize: '0.8rem', marginBottom: '12px' }}>
-                ✓ Subscribed to LeoVantage Dispatch!
+                ✓ Thank you for subscribing!
               </div>
             )}
             <div style={{ fontSize: '0.82rem', color: 'var(--muted-light)' }}>
-              {/* PLACEHOLDER: replace with real contact information */}
-              <span>📍 HQ: Bengaluru, Karnataka, India</span>
+              <span>📍 Bengaluru, Karnataka, India</span>
               <br />
-              <span>✉️ contact: hello@leovantage.com</span>
+              <span>✉️ hello@leovantage.com</span>
             </div>
           </div>
         </div>

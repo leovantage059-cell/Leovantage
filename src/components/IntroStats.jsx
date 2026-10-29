@@ -67,26 +67,24 @@ export default function IntroStats() {
           <div>
             <div className="sub-title">WHO WE ARE</div>
             <h2 className="intro-statement">
-              We bridge the gap between <span className="highlight-word">artistic vision</span> and{' '}
-              <span className="highlight-word">hardcore engineering</span> to create websites that convert.
+              We build websites and apps that help businesses <span className="highlight-word">serve their customers better</span>.
             </h2>
           </div>
           <div className="intro-details-col">
             <p className="intro-body-copy">
-              LeoVantage Web Studio is an independent digital craftsmanship collective. We build blazing-fast web
-              architectures, mobile experiences, and modern product suites with obsessive attention to
-              micro-interactions, accessibility, and high ROI.
+              LeoVantage Web Studio helps businesses plan, design, and build websites and apps. We focus on clear design,
+              reliable performance, and an easy experience for the people who use them.
             </p>
             {/* Animated Counters */}
             <div className="stats-counters-grid">
               <div
                 className="stat-counter-card"
                 role="group"
-                aria-label={`${targets.projects}+ Projects Delivered`}
+                aria-label={`${targets.projects}+ Projects Completed`}
               >
                 <div className="stat-number" aria-hidden="true">{counts.projects}+</div>
-                <div className="stat-label">Projects Delivered</div>
-                <span className="sr-only">{targets.projects}+ Projects Delivered</span>
+                <div className="stat-label">Projects Completed</div>
+                <span className="sr-only">{targets.projects}+ Projects Completed</span>
               </div>
               <div
                 className="stat-counter-card"

@@ -8,11 +8,10 @@ export default function FinalCta({ navigate }) {
     <section className={`section-final-cta ${isRevealed ? 'is-revealed' : ''}`} ref={sectionRef}>
       <div className="container">
         <div className="final-cta-content">
-          <div className="sub-title light">START YOUR JOURNEY</div>
-          <h2 className="final-cta-headline">LET'S BUILD SOMETHING GREAT.</h2>
+          <div className="sub-title light">READY TO BEGIN?</div>
+          <h2 className="final-cta-headline">LET'S BUILD SOMETHING GREAT TOGETHER.</h2>
           <p className="final-cta-desc">
-            Have an idea, platform, or brand in mind? Let's discuss your timeline, tech requirements, and budget
-            over a quick strategy call.
+            Have a website or app in mind? Tell us about your goals, timeline, and requirements. We will review your project and get back to you with next steps.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a
@@ -23,7 +22,7 @@ export default function FinalCta({ navigate }) {
                 navigate('contact');
               }}
             >
-              <span>START A PROJECT BRIEF</span>
+              <span>START A PROJECT</span>
               <span className="btn-arrow">↗</span>
             </a>
             <a
@@ -34,7 +33,7 @@ export default function FinalCta({ navigate }) {
                 navigate('work');
               }}
             >
-              EXPLORE OUR WORK
+              VIEW OUR WORK
             </a>
           </div>
         </div>
