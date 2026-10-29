@@ -46,7 +46,7 @@ export default function FeaturedProjects({ navigate }) {
               <div className="project-info-side">
                 <div>
                   <div className="project-meta-pills">
-                    <span className="project-pill">{project.categoryLabel.split('•')[0].trim()}</span>
+                    <span className="project-pill">{((project.categoryLabel || project.category || 'PROJECT').split('•')[0] || 'PROJECT').trim()}</span>
                     <span className="project-year">{project.year}</span>
                   </div>
                   <h3 className="project-title">{project.title}</h3>

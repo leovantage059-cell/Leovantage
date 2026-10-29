@@ -22,6 +22,7 @@ import { FAQS as fallbackFaqs, PROCESS_STEPS as fallbackProcessSteps } from '../
  * Fallbacks safely to static data if Firestore is offline, empty, or uninitialized.
  */
 export async function getPublishedProjects() {
+  if (!db) return fallbackProjects;
   try {
     const q = query(
       collection(db, 'projects'),
@@ -49,6 +50,7 @@ export async function getPublishedProjects() {
  * Fetch a single published project by its slug/id.
  */
 export async function getProjectBySlug(slug) {
+  if (!db) return fallbackProjects.find((p) => p.id === slug) || null;
   try {
     const docRef = doc(db, 'projects', slug);
     const docSnap = await getDoc(docRef);
@@ -67,6 +69,8 @@ export async function getProjectBySlug(slug) {
 export async function getPublishedServices() {
   let services = fallbackServices;
   let pricing = fallbackPricing;
+
+  if (!db) return { services, pricing };
 
   try {
     const sQuery = query(
@@ -103,6 +107,14 @@ export async function getPublishedServices() {
  * Fetch published team members (founders & core team).
  */
 export async function getPublishedTeam() {
+  if (!db) {
+    return {
+      founders: fallbackFounders,
+      coreTeam: fallbackCoreTeam,
+      values: fallbackValues
+    };
+  }
+
   try {
     const tQuery = query(
       collection(db, 'team_members'),
@@ -136,6 +148,8 @@ export async function getPublishedTeam() {
  * Fetch published reviews.
  */
 export async function getPublishedReviews() {
+  if (!db) return fallbackReviews;
+
   try {
     const rQuery = query(
       collection(db, 'reviews'),
@@ -159,6 +173,8 @@ export async function getPublishedReviews() {
 export async function getPublishedFaqsAndProcess() {
   let faqs = fallbackFaqs;
   let process = fallbackProcessSteps;
+
+  if (!db) return { faqs, process };
 
   try {
     const fQuery = query(
@@ -195,6 +211,8 @@ export async function getPublishedFaqsAndProcess() {
  * Fetch hero content customization.
  */
 export async function getSiteHero() {
+  if (!db) return null;
+
   try {
     const heroSnap = await getDoc(doc(db, 'site_hero', 'main'));
     if (heroSnap.exists() && heroSnap.data().visibility !== false) {
@@ -211,6 +229,10 @@ export async function getSiteHero() {
  * Conforms strictly to firestore.rules requirements.
  */
 export async function submitContactInquiry(briefData) {
+  if (!db) {
+    throw new Error('Database service is temporarily unavailable. Please email us at contact@leovantage.com');
+  }
+
   const { name, email, phone, service, budget, timeline, message } = briefData;
 
   // Validation
