@@ -4280,21 +4280,9 @@ img, svg {
     margin-bottom: 22px;
     gap: 6px;
   }
+  /* Hide the dark visual mockup card on mobile phones so only the clean project details card shows */
   .project-visual-side {
-    padding: 22px 18px;
-    border-left: none;
-    border-top: 1px solid var(--border-light);
-  }
-  .project-device-frame {
-    aspect-ratio: 16 / 10;
-    height: auto;
-    min-height: auto;
-    max-height: 240px;
-    transform: none !important;
-  }
-  .device-ui-canvas {
-    padding: 14px;
-    gap: 10px;
+    display: none !important;
   }
 
   /* Form & Inputs (prevent iOS auto-zoom with 16px font-size) */
@@ -4458,11 +4446,7 @@ img, svg {
     margin-bottom: 18px;
   }
   .project-visual-side {
-    padding: 16px 12px;
-  }
-  .project-device-frame {
-    max-height: 200px;
-    border-radius: 12px;
+    display: none !important;
   }
 
   /* Case study stats */
